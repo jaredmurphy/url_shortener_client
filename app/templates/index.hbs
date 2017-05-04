@@ -1,3 +1,4 @@
+{{activate}}
 <div class="jumbotron text-center">
   <h1>Url Shortener</h1>
 
@@ -19,4 +20,12 @@
 
   <br/><br/>
   </div>
+
+  {{#each topUrls as |url|}}
+    <ul>
+      <li>Full: {{ url.full_link }}</li>
+      <li>Short: {{ url.short_link }}</li>
+      <li>Count: {{ url.access_count }}</li>
+    </ul>
+  {{/each}}
 </div>

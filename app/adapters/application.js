@@ -1,12 +1,3 @@
-import DS from 'ember-data';
+import ActiveModelAdapter from 'active-model-adapter';
 
-
-const { String: { pluralize, underscore } } = Ember;
-
-export default JSONAPIAdapter.extend({
-  pathForType(type) {
-    return pluralize(underscore(type));
-  }
-});
-
-
+export default ActiveModelAdapter.extend()

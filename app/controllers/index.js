@@ -5,15 +5,20 @@ export default Ember.Controller.extend({
   url: '',
   isValid: Ember.computed.match('url', /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/),
   isDisabled: Ember.computed.not('isValid'),
-
-  actualUrl: Ember.computed('url', function() {
-    alert('acutalUrl is called: ', this.get('url'));
-  }),
-  urlChanged: Ember.observer('url', function(){
-    console.log('observer is called', this.get('url'))
-  }),
+  topUrls: [],
 
   actions: {
+    activate(){
+      console.log('inside activate')
+      const apiUrl = "http://localhost:300/api/v1/tops";
+      Ember.$.ajax({
+        url: apiUrl,
+        method: "GET"
+      }).then(response => {
+        debugger;
+        this.set('topUrls', response)
+      });
+    },
     createShortLink(){
       const url = this.get('url');
       console.log('we will be back shortly with your shorter version of ', url);
