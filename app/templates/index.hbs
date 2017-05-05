@@ -1,4 +1,5 @@
 {{activate}}
+{{!-- calls for the list of top links --}}
 <div class="jumbotron text-center">
   <h1>Url Shortener</h1>
 
@@ -10,22 +11,29 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
       {{input type="email" value=url class="form-control" placeholder="Please paste in a URL." autofocus="autofocus"}}
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
 
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
         <button class="btn btn-primary btn-lg btn-block" disabled={{disabled}} {{action 'createShortLink'}} >
           Get Short Link
         </button>
-
     </div>
 
-  <br/><br/>
+    <br/><br/>
+    {{#if responseMessage}}
+      <div class="alert alert-success"><a href={{shortUrl}}><p>{{responseMessage}}</p></a></div>
+    {{/if}}
   </div>
 
+  <h2> Most Frequently Accessed </h2>
   {{#each topUrls as |url|}}
-    <ul>
-      <li>Full: {{ url.full_link }}</li>
-      <li>Short: {{ url.short_link }}</li>
-      <li>Count: {{ url.access_count }}</li>
-    </ul>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><a href={{url.short_link}}>{{ url.short_link }}</a></h3>
+      </div>
+      <div class="panel-body">
+        <p>Full: <a href={{url.full_link}}>{{ url.full_link }}</a></p>
+        <p>Clicks: {{ url.access_count }}</p>
+      </div>
+    </div>
   {{/each}}
 </div>
