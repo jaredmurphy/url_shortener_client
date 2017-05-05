@@ -1,7 +1,7 @@
 # URL Shortener 
 
 ##### About this README
-This markdown file contains information about the Ember client app specifically - such as setup and install. Information for the Rails API can be found - [here](https://raw.githubusercontent.com/jaredmurphy/url_shortener) as well as information about the project as a whole, including wins, challenges, and an explanation of the shortening algorithm.
+This markdown file contains information about the Ember client app specifically - such as setup and install. Information for the Rails API can be found - [here](https://github.com/jaredmurphy/url_shortener) as well as information about the project as a whole, including wins, challenges, and an explanation of the shortening algorithm.
 
 ##### Deployment 
 You can find the deployed Rails API deployed on Heroku [here](https://url-shortenerapi.herokuapp.com/api/v1/tops)
