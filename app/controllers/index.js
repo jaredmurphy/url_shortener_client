@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  url: 'asdf',
+  url: '',
   shortUrl: '',
   responseMessage: '',
   isValid: Ember.computed.match('url', /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/),
@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 
   actions: {
     getTopUrls(){
-      const apiUrl = "http://localhost:3000/api/v1/tops";
+      const apiUrl = "https://url-shortenerapi.herokuapp.com/api/v1/tops";
       Ember.$.ajax({
         url: apiUrl,
         method: "GET"
@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
     },
     createShortLink(){
       const url = this.get('url');
-      const apiUrl = "http://localhost:3000/api/v1/urls";
+      const apiUrl = "https://url-shortenerapi.herokuapp.com/api/v1/urls";
 
       Ember.$.ajax({
         url: apiUrl,
