@@ -1,10 +1,6 @@
-{{activate}}
-{{!-- calls for the list of top links --}}
 <div class="jumbotron text-center">
   <h1>Url Shortener</h1>
-
   <br/><br/>
-
   <p>The Shortest Short Links You've Ever Linked</p>
 
   <div class="form-horizontal form-group form-group-lg row">
@@ -20,7 +16,7 @@
 
     <br/><br/>
     {{#if responseMessage}}
-      <div class="alert alert-success"><a href={{shortUrl}}><p>{{responseMessage}}</p></a></div>
+      <div class="alert alert-success"><p>{{responseMessage}}</p></div>
     {{/if}}
   </div>
 
@@ -28,10 +24,10 @@
   {{#each topUrls as |url|}}
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><a href={{url.short_link}}>{{ url.short_link }}</a></h3>
+        <a href={{url.short_link}}><h3 class="panel-title">{{ url.short_link }}</h3></a>
       </div>
       <div class="panel-body">
-        <p>Full: <a href={{url.full_link}}>{{ url.full_link }}</a></p>
+        <p>Full: {{ url.full_link }}</p>
         <p>Clicks: {{ url.access_count }}</p>
       </div>
     </div>

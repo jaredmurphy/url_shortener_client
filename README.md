@@ -1,52 +1,31 @@
-# url-shortener-client
+# URL Shortener 
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+##### About this README
+This markdown file contains information about the Ember client app specifically - such as setup and install. Information for the Rails API can be found - [here](https://raw.githubusercontent.com/jaredmurphy/url_shortener) as well as information about the project as a whole, including wins, challenges, and an explanation of the shortening algorithm.
 
-## Prerequisites
+##### Deployment 
+You can find the deployed Rails API deployed on Heroku [here](https://url-shortenerapi.herokuapp.com/api/v1/tops)
 
-You will need the following things properly installed on your computer.
+The deployed Ember app is also on Heroku [here](https://protected-reaches-70331.herokuapp.com/)
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Bower](https://bower.io/)
-* [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+##### Setup and Install
+To set up the Ember client app:
+* Get the Ember cli tools if you dont have them - `npm install -g ember-cli`
+* Clone this repo 
+* run `npm install`
 
-## Installation
+To start the server
+* run `ember server`
 
-* `git clone <repository-url>` this repository
-* `cd url-shortener-client`
-* `npm install`
-* `bower install`
+Go to localhost:4200 
 
-## Running / Development
+##### Talking to Rails Api
+The client side app will look for a localhost:3000 when in development, so make sure you have the Rails server running when running locally. In production this app uses the production url of the Rails Api. 
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+##### Building With Ember 
+For this app, I worked mostly just with controllers and templates. When the page loads, the controller sends a request to the Rails Api for the list of top 100 links and renders them below the input. When a user takes a link and submits it, another request goes out to generate the new url, which will include the shortened url. On submission, the list of top links will rerender so you might see changes if you click a short link before submitting the url. 
 
-### Code Generators
 
-Make use of the many generators for code, try `ember help generate` for more details
 
-### Running Tests
 
-* `ember test`
-* `ember test --server`
 
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)

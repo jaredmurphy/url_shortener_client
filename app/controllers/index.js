@@ -16,24 +16,22 @@ export default Ember.Controller.extend({
         url: apiUrl,
         method: "GET"
       }).then(response => {
-        this.set('topUrls', response.urls)
+        this.set('topUrls', response.urls);
       });
     },
     createShortLink(){
       const url = this.get('url');
       const apiUrl = config.ApiUrl + "/urls";
 
-      console.log("url", apiUrl)
       Ember.$.ajax({
         url: apiUrl,
         method: "POST",
         data: {url: {full_link: url}}
       }).then(response => {
-        this.send('getTopUrls')
-        const short = response.url.short_link
-        this.set('shortUrl', response.url.short_link)
-        this.set('url', '')
-        this.set('responseMessage', `Thanks! Here is your link: ${this.get('shortUrl')}`)
+        this.send('getTopUrls');
+        this.set('shortUrl', response.url.short_link);
+        this.set('url', '');
+        this.set('responseMessage', `Thanks! Here is your link: ${this.get('shortUrl')}`);
       });
     }
   }
