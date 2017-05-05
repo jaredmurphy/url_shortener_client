@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Route.extend({
   setupController(controller, model) {
-    $.getJSON('https://url-shortenerapi.herokuapp.com/api/v1/tops', data =>{
+    $.getJSON(config.ApiUrl + '/tops', data => {
       controller.set('topUrls', data.urls);
-    })
+    });
   }
 })

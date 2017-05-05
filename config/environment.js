@@ -29,6 +29,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.ApiUrl = 'http://localhost:3000/api/v1'
   }
 
   if (environment === 'test') {
@@ -43,7 +44,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.locationType = 'hash'
+    ENV.locationType = 'hash';
+    ENV.ApiUrl = 'https://url-shortenerapi.herokuapp.com/api/v1';
 
   }
 

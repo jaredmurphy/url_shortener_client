@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Controller.extend({
   url: '',
@@ -10,7 +11,7 @@ export default Ember.Controller.extend({
 
   actions: {
     getTopUrls(){
-      const apiUrl = "https://url-shortenerapi.herokuapp.com/api/v1/tops";
+      const apiUrl = config.ApiUrl + "/tops";
       Ember.$.ajax({
         url: apiUrl,
         method: "GET"
@@ -20,8 +21,9 @@ export default Ember.Controller.extend({
     },
     createShortLink(){
       const url = this.get('url');
-      const apiUrl = "https://url-shortenerapi.herokuapp.com/api/v1/urls";
+      const apiUrl = config.ApiUrl + "/urls";
 
+      console.log("url", apiUrl)
       Ember.$.ajax({
         url: apiUrl,
         method: "POST",
